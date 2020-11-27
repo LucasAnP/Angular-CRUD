@@ -9,27 +9,23 @@ import { Product } from '../products.model';
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-
   product: Product = {
-    name:'',
+    name: '',
     price: 0
+  };
+
+  constructor(private productService: ProductService, private router: Router) {}
+
+  ngOnInit(): void {}
+  // Subscribe - Notificado quando a criação for executada
+  createProduct(): void {
+    this.productService.create(this.product).subscribe(() => {
+      this.productService.showMessage('Produto Criado');
+      this.router.navigate(['/products']);
+    });
   }
 
-  constructor(private productService: ProductService,
-    private router: Router) { }
-    
-  ngOnInit(): void {
-  }
-// Subscribe - Notificado quando a criação for executada
-  createProduct():void{
-    this.productService.create(this.product).subscribe(() =>{
-      this.productService.showMessage('Produto Criado')
-      this.router.navigate(['/products'])
-    })
-    
-  }
-
-  cancel():void{
-    this.router.navigate(['/products'])
+  cancel(): void {
+    this.router.navigate(['/products']);
   }
 }

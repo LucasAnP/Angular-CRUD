@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "tsc --noEmit && eslint . --ext js,ts,json --quiet --fix"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +29,12 @@
     "@angular/cli": "~11.0.1",
     "@angular/compiler-cli": "~11.0.0",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.2.0",
+    "prettier-eslint": "^12.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
